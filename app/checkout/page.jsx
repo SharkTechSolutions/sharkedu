@@ -1,15 +1,8 @@
 import { courses, getCourseBySlug } from "@/data/courses";
-
-function formatPrice(price) {
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    maximumFractionDigits: 0
-  }).format(price);
-}
+import { formatInr } from "@/lib/currency";
 
 export const metadata = {
-  title: "Checkout | CourseCraft",
+  title: "Checkout | SharkEdu",
   description: "Complete your enrollment and start learning today."
 };
 
@@ -57,7 +50,7 @@ export default function CheckoutPage({ searchParams }) {
             </select>
 
             <button type="button" className="btn full-width">
-              Pay {formatPrice(selectedCourse.price)}
+              Pay {formatInr(selectedCourse.price)}
             </button>
           </form>
         </article>
@@ -71,13 +64,13 @@ export default function CheckoutPage({ searchParams }) {
 
           <div className="order-pricing">
             <p>
-              Subtotal <span>{formatPrice(selectedCourse.originalPrice)}</span>
+              Subtotal <span>{formatInr(selectedCourse.originalPrice)}</span>
             </p>
             <p>
-              Discount <span>-{formatPrice(selectedCourse.originalPrice - selectedCourse.price)}</span>
+              Discount <span>-{formatInr(selectedCourse.originalPrice - selectedCourse.price)}</span>
             </p>
             <p className="total-row">
-              Total <span>{formatPrice(selectedCourse.price)}</span>
+              Total <span>{formatInr(selectedCourse.price)}</span>
             </p>
           </div>
 

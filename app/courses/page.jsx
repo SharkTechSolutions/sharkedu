@@ -2,7 +2,7 @@ import CourseCard from "@/components/CourseCard";
 import { courses } from "@/data/courses";
 
 export const metadata = {
-  title: "All Courses | CourseCraft",
+  title: "All Courses | SharkEdu",
   description: "Browse all available courses and enroll today."
 };
 

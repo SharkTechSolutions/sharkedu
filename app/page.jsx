@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Banner from "@/components/Banner";
 import CourseCard from "@/components/CourseCard";
 import { categories, courses, faqs, stats, testimonials } from "@/data/courses";
 
@@ -7,6 +8,8 @@ export default function HomePage() {
 
   return (
     <>
+      <Banner />
+
       <section className="hero">
         <div className="container hero-grid">
           <div>
@@ -27,7 +30,7 @@ export default function HomePage() {
           </div>
 
           <div className="hero-card">
-            <h2>Why learners choose CourseCraft</h2>
+            <h2>Why learners choose SharkEdu</h2>
             <ul>
               <li>Real-world capstone projects and portfolio support</li>
               <li>Weekly mentor office hours and community discussions</li>

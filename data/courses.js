@@ -8,8 +8,8 @@ export const categories = [
 ];
 
 export const stats = [
-  { label: "Active Learners", value: "32K+" },
-  { label: "Expert Instructors", value: "120+" },
+  { label: "Active Learners", value: "300+" },
+  { label: "Expert Instructors", value: "10+" },
   { label: "Career Certificates", value: "65" },
   { label: "Avg. Rating", value: "4.8/5" }
 ];
@@ -45,10 +45,6 @@ export const faqs = [
     a: "Yes, verified certificates are included for all tracks after completing course projects and assessments."
   },
   {
-    q: "Can I pay in installments?",
-    a: "Yes, selected programs support EMI and installment options at checkout based on your region."
-  },
-  {
     q: "How much support will I get?",
     a: "You get mentor Q&A, peer community access, and weekly office hours for guided learning."
   }
@@ -64,8 +60,8 @@ export const courses = [
     lessons: 64,
     students: 4200,
     rating: 4.9,
-    price: 149,
-    originalPrice: 249,
+    price: 1499,
+    originalPrice: 2499,
     image:
       "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80",
     instructor: "Rahul Verma",
@@ -95,8 +91,8 @@ export const courses = [
     lessons: 72,
     students: 5300,
     rating: 4.8,
-    price: 169,
-    originalPrice: 279,
+    price: 1699,
+    originalPrice: 2799,
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
     instructor: "Ishita Rao",
@@ -126,8 +122,8 @@ export const courses = [
     lessons: 48,
     students: 3100,
     rating: 4.7,
-    price: 129,
-    originalPrice: 219,
+    price: 1299,
+    originalPrice: 2199,
     image:
       "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80",
     instructor: "Neha Saini",
@@ -157,8 +153,8 @@ export const courses = [
     lessons: 34,
     students: 2700,
     rating: 4.8,
-    price: 99,
-    originalPrice: 179,
+    price: 999,
+    originalPrice: 1799,
     image:
       "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=1200&q=80",
     instructor: "Kabir Khanna",
@@ -183,18 +179,4 @@ export const courses = [
 
 export function getCourseBySlug(slug) {
   return courses.find((course) => course.slug === slug);
-}
-
-const studentEnrollments = {
-  "student@coursecraft.dev": ["nextjs-mastery", "data-analytics-bootcamp"],
-  "designer@coursecraft.dev": ["ui-ux-design-pro"],
-  "growth@coursecraft.dev": ["growth-marketing-ai", "nextjs-mastery"]
-};
-
-export function getCoursesForStudent(email) {
-  const normalizedEmail = (email || "").toLowerCase();
-  const enrolledSlugs =
-    studentEnrollments[normalizedEmail] || ["nextjs-mastery", "ui-ux-design-pro"];
-
-  return courses.filter((course) => enrolledSlugs.includes(course.slug));
 }

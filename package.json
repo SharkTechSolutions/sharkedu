@@ -1,5 +1,5 @@
 {
-  "name": "coursecraft-academy",
+  "name": "sharkedu-academy",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -10,8 +10,15 @@
   },
   "dependencies": {
     "next": "14.2.5",
-    "next-auth": "^4.24.11",
     "react": "18.3.1",
     "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.4",
+    "autoprefixer": "^10.5.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.5",
+    "postcss": "^8.5.12",
+    "tailwindcss": "^4.2.4"
   }
 }

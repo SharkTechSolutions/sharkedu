@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="container footer-grid">
         <div>
-          <p className="logo">CourseCraft</p>
+          <p className="logo">SharkEdu</p>
           <p>
             Practical, mentor-backed learning paths to help you grow your career and
             build real-world skills.
@@ -30,14 +30,14 @@ export default function Footer() {
         <div>
           <h3>Contact</h3>
           <ul>
-            <li>support@coursecraft.academy</li>
+            <li>support@sharkedu.academy</li>
             <li>+1 (555) 217-9034</li>
             <li>Global Learner Community</li>
           </ul>
         </div>
       </div>
       <p className="copyright">
-        Copyright {new Date().getFullYear()} CourseCraft. All rights reserved.
+        Copyright {new Date().getFullYear()} SharkEdu. All rights reserved.
       </p>
     </footer>
   );
