@@ -1,14 +1,34 @@
+import { redirect } from "next/navigation";
+import { getServerSession } from "next-auth";
+import CheckoutForm from "@/components/CheckoutForm";
 import { courses, getCourseBySlug } from "@/data/courses";
-import { formatInr } from "@/lib/currency";
+import { authOptions } from "@/lib/auth";
+
+function formatPrice(price) {
+  return new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "INR",
+    maximumFractionDigits: 0
+  }).format(price);
+}
 
 export const metadata = {
-  title: "Checkout | SharkEdu",
+  title: "Checkout | CourseCraft",
   description: "Complete your enrollment and start learning today."
 };
 
-export default function CheckoutPage({ searchParams }) {
+export default async function CheckoutPage({ searchParams }) {
   const selectedSlug = searchParams?.course;
   const selectedCourse = getCourseBySlug(selectedSlug) || courses[0];
+  const callbackUrl = `/checkout?course=${selectedCourse.slug}`;
+  const session = await getServerSession(authOptions);
+
+  if (!session?.user?.email) {
+    redirect(`/login?callbackUrl=${encodeURIComponent(callbackUrl)}`);
+  }
+
+  const studentEmail = session.user.email.toLowerCase();
+  const studentName = session.user.name || "";
 
   return (
     <section className="section">
@@ -19,40 +39,12 @@ export default function CheckoutPage({ searchParams }) {
             Secure your seat in under 2 minutes. Access starts immediately after
             payment.
           </p>
-
-          <form className="checkout-form">
-            <label htmlFor="fullName">Full Name</label>
-            <input id="fullName" name="fullName" placeholder="Jane Doe" required />
-
-            <label htmlFor="email">Email</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="jane@example.com"
-              required
-            />
-
-            <label htmlFor="course">Select Course</label>
-            <select id="course" name="course" defaultValue={selectedCourse.slug}>
-              {courses.map((course) => (
-                <option key={course.slug} value={course.slug}>
-                  {course.title}
-                </option>
-              ))}
-            </select>
-
-            <label htmlFor="payment">Payment Method</label>
-            <select id="payment" name="payment" defaultValue="card">
-              <option value="card">Credit / Debit Card</option>
-              <option value="paypal">PayPal</option>
-              <option value="upi">UPI</option>
-            </select>
-
-            <button type="button" className="btn full-width">
-              Pay {formatInr(selectedCourse.price)}
-            </button>
-          </form>
+          <CheckoutForm
+            courses={courses}
+            initialCourseSlug={selectedCourse.slug}
+            studentEmail={studentEmail}
+            studentName={studentName}
+          />
         </article>
 
         <aside className="checkout-card">
@@ -64,13 +56,13 @@ export default function CheckoutPage({ searchParams }) {
 
           <div className="order-pricing">
             <p>
-              Subtotal <span>{formatInr(selectedCourse.originalPrice)}</span>
+              Subtotal <span>{formatPrice(selectedCourse.originalPrice)}</span>
             </p>
             <p>
-              Discount <span>-{formatInr(selectedCourse.originalPrice - selectedCourse.price)}</span>
+              Discount <span>-{formatPrice(selectedCourse.originalPrice - selectedCourse.price)}</span>
             </p>
             <p className="total-row">
-              Total <span>{formatInr(selectedCourse.price)}</span>
+              Total <span>{formatPrice(selectedCourse.price)}</span>
             </p>
           </div>
 

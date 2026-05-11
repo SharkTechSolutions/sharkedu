@@ -1,5 +1,12 @@
 import Link from "next/link";
-import { formatInr } from "@/lib/currency";
+
+function formatPrice(price) {
+  return new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "INR",
+    maximumFractionDigits: 0
+  }).format(price);
+}
 
 export default function CourseCard({ course }) {
   const discount = Math.round(
@@ -22,8 +29,8 @@ export default function CourseCard({ course }) {
 
         <div className="price-row">
           <p>
-            <strong>{formatInr(course.price)}</strong>
-            <span className="muted">{formatInr(course.originalPrice)}</span>
+            <strong>{formatPrice(course.price)}</strong>
+            <span className="muted">{formatPrice(course.originalPrice)}</span>
           </p>
           <span className="discount">{discount}% OFF</span>
         </div>

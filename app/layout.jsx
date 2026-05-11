@@ -1,20 +1,23 @@
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Providers from "./providers";
 
 export const metadata = {
-  title: "SharkEdu | Learn High-Demand Skills",
+  title: "CourseCraft | Learn High-Demand Skills",
   description:
-    "SharkEdu helps you learn tech, design, and business skills through practical courses and guided projects."
+    "CourseCraft helps you learn tech, design, and business skills through practical courses and guided projects."
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <Providers>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

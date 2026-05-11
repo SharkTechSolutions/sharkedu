@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { courses, getCourseBySlug } from "@/data/courses";
-import { formatInr } from "@/lib/currency";
 
 export async function generateStaticParams() {
   return courses.map((course) => ({ slug: course.slug }));
@@ -12,14 +11,22 @@ export function generateMetadata({ params }) {
 
   if (!course) {
     return {
-      title: "Course Not Found | SharkEdu"
+      title: "Course Not Found | CourseCraft"
     };
   }
 
   return {
-    title: `${course.title} | SharkEdu`,
+    title: `${course.title} | CourseCraft`,
     description: course.summary
   };
+}
+
+function formatPrice(price) {
+  return new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "INR",
+    maximumFractionDigits: 0
+  }).format(price);
 }
 
 export default function CourseDetailsPage({ params }) {
@@ -65,8 +72,8 @@ export default function CourseDetailsPage({ params }) {
           <p className="instructor">Instructor: {course.instructor}</p>
 
           <p className="course-price">
-            <strong>{formatInr(course.price)}</strong>
-            <span>{formatInr(course.originalPrice)}</span>
+            <strong>{formatPrice(course.price)}</strong>
+            <span>{formatPrice(course.originalPrice)}</span>
           </p>
 
           <Link href={`/checkout?course=${course.slug}`} className="btn full-width">
