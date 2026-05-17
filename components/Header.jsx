@@ -48,25 +48,22 @@ export default function Header() {
           {!isLoggedIn && <Link href="/signup" onClick={closeMenu}>Sign Up</Link>}
         </nav>
 
-        {!isLoggedIn ? (
-          <Link href="/courses" className="btn btn-sm" onClick={closeMenu}>
-            Explore Courses
-          </Link>
-        ) : (
-          <div className="auth-nav">
-            <span className="user-chip">Hi, {studentName}</span>
-            <button
-              type="button"
-              className="btn btn-sm btn-ghost"
-              onClick={() => {
-                closeMenu();
-                signOut({ callbackUrl: "/" });
-              }}
-            >
-              Logout
-            </button>
-          </div>
-        )}
+{isLoggedIn && (
+  <div className="auth-nav">
+    <span className="user-chip">Hi, {studentName}</span>
+
+    <button
+      type="button"
+      className="btn btn-sm btn-ghost"
+      onClick={() => {
+        closeMenu();
+        signOut({ callbackUrl: "/" });
+      }}
+    >
+      Logout
+    </button>
+  </div>
+)}
       </div>
     </header>
   );
