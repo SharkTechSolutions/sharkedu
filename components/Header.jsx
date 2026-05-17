@@ -14,89 +14,102 @@ export default function Header() {
   const toggleMenu = () => setMobileMenuOpen((current) => !current);
 
   return (
-    <header className="site-header">
-      <div className="container nav-wrap">
-<Link href="/" className="logo" onClick={closeMenu}>
-  <img
-    src="/logo1.png"          // ← change this to your actual filename
-    alt="SharkEdu"
-    style={{ height: "60px", width: "auto", display: "block" }}
-  />
-</Link>
+  <header className="site-header">
+  <div className="container nav-wrap">
+    {/* Logo */}
+    <Link href="/" className="logo" onClick={closeMenu}>
+      <img
+        src="/logo1.png"
+        alt="SharkEdu"
+        style={{
+          height: "60px",
+          width: "auto",
+          display: "block",
+        }}
+      />
+    </Link>
 
+    {/* Right Side */}
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "12px",
+        marginLeft: "auto",
+      }}
+    >
+      {/* User Name */}
+      {isLoggedIn && (
+        <span className="user-chip">
+          Hi, {studentName}
+        </span>
+      )}
+
+      {/* Hamburger */}
+      <button
+        type="button"
+        className="mobile-nav-toggle"
+        aria-expanded={mobileMenuOpen}
+        aria-label={
+          mobileMenuOpen
+            ? "Close navigation menu"
+            : "Open navigation menu"
+        }
+        onClick={toggleMenu}
+      >
+        <span className="hamburger-bar" aria-hidden="true" />
+        <span className="hamburger-bar" aria-hidden="true" />
+        <span className="hamburger-bar" aria-hidden="true" />
+      </button>
+    </div>
+
+    {/* Navigation */}
+    <nav
+      className={`nav-links${mobileMenuOpen ? " nav-open" : ""}`}
+      aria-label="Main navigation"
+    >
+      <Link href="/" onClick={closeMenu}>
+        Home
+      </Link>
+
+      <Link href="/courses" onClick={closeMenu}>
+        Courses
+      </Link>
+
+      <Link href="/checkout" onClick={closeMenu}>
+        Checkout
+      </Link>
+
+      <Link href="/my-courses" onClick={closeMenu}>
+        My Courses
+      </Link>
+
+      {!isLoggedIn && (
+        <Link href="/login" onClick={closeMenu}>
+          Login
+        </Link>
+      )}
+
+      {!isLoggedIn && (
+        <Link href="/signup" onClick={closeMenu}>
+          Sign Up
+        </Link>
+      )}
+
+      {isLoggedIn && (
         <button
           type="button"
-          className="mobile-nav-toggle"
-          aria-expanded={mobileMenuOpen}
-          aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-          onClick={toggleMenu}
+          className="btn btn-sm btn-ghost mobile-logout"
+          onClick={() => {
+            closeMenu();
+            signOut({ callbackUrl: "/" });
+          }}
         >
-          <span className="hamburger-bar" aria-hidden="true" />
-          <span className="hamburger-bar" aria-hidden="true" />
-          <span className="hamburger-bar" aria-hidden="true" />
+          Logout
         </button>
-
-        <nav
-  className={`nav-links${mobileMenuOpen ? " nav-open" : ""}`}
-  aria-label="Main navigation"
->
-  <Link href="/" onClick={closeMenu}>Home</Link>
-
-  <Link href="/courses" onClick={closeMenu}>
-    Courses
-  </Link>
-
-  <Link href="/checkout" onClick={closeMenu}>
-    Checkout
-  </Link>
-
-  <Link href="/my-courses" onClick={closeMenu}>
-    My Courses
-  </Link>
-
-  {!isLoggedIn && (
-    <Link href="/login" onClick={closeMenu}>
-      Login
-    </Link>
-  )}
-
-  {!isLoggedIn && (
-    <Link href="/signup" onClick={closeMenu}>
-      Sign Up
-    </Link>
-  )}
-
-  {isLoggedIn && (
-    <button
-      type="button"
-      className="btn btn-sm btn-ghost mobile-logout"
-      onClick={() => {
-        closeMenu();
-        signOut({ callbackUrl: "/" });
-      }}
-    >
-      Logout
-    </button>
-  )}
-</nav>
-
-{/* {isLoggedIn && (
-  <div className="auth-nav">
-    <span className="user-chip">Hi, {studentName}</span>
-
-    <button
-      type="button"
-      className="btn btn-sm btn-ghost"
-      onClick={() => {
-        closeMenu();
-        signOut({ callbackUrl: "/" });
-      }}
-    >
-      Logout
-    </button>
+      )}
+    </nav>
   </div>
-)} */}
-      </div>
-    </header>
+</header>
   );
 }
