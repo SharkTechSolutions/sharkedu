@@ -48,7 +48,7 @@ export default function Header() {
           {!isLoggedIn && <Link href="/signup" onClick={closeMenu}>Sign Up</Link>}
         </nav>
 
-        {/* {!isLoggedIn ? (
+        {!isLoggedIn ? (
           <Link href="/courses" className="btn btn-sm" onClick={closeMenu}>
             Explore Courses
           </Link>
@@ -66,7 +66,7 @@ export default function Header() {
               Logout
             </button>
           </div>
-        )} */}
+        )}
       </div>
     </header>
   );

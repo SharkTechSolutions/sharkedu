@@ -20,9 +20,14 @@ export default function HomePage() {
               <Link href="/courses" className="btn btn-lg">
                 Explore Programs
               </Link>
-              <Link href="/checkout" className="btn btn-ghost btn-lg">
-                Start Learning
-              </Link>
+             <a
+  href="https://wa.me/918931918656?text=Hi%20SharkEdu%2C%20I%20want%20course%20guidance."
+  target="_blank"
+  rel="noopener noreferrer"
+  className="btn btn-ghost btn-lg"
+>
+  Talk to Advisor
+</a>
             </div>
           </div>
 
