@@ -37,18 +37,50 @@ export default function Header() {
         </button>
 
         <nav
-          className={`nav-links${mobileMenuOpen ? " nav-open" : ""}`}
-          aria-label="Main navigation"
-        >
-          <Link href="/" onClick={closeMenu}>Home</Link>
-          <Link href="/courses" onClick={closeMenu}>Courses</Link>
-          <Link href="/checkout" onClick={closeMenu}>Checkout</Link>
-          <Link href="/my-courses" onClick={closeMenu}>My Courses</Link>
-          {!isLoggedIn && <Link href="/login" onClick={closeMenu}>Login</Link>}
-          {!isLoggedIn && <Link href="/signup" onClick={closeMenu}>Sign Up</Link>}
-        </nav>
+  className={`nav-links${mobileMenuOpen ? " nav-open" : ""}`}
+  aria-label="Main navigation"
+>
+  <Link href="/" onClick={closeMenu}>Home</Link>
 
-{isLoggedIn && (
+  <Link href="/courses" onClick={closeMenu}>
+    Courses
+  </Link>
+
+  <Link href="/checkout" onClick={closeMenu}>
+    Checkout
+  </Link>
+
+  <Link href="/my-courses" onClick={closeMenu}>
+    My Courses
+  </Link>
+
+  {!isLoggedIn && (
+    <Link href="/login" onClick={closeMenu}>
+      Login
+    </Link>
+  )}
+
+  {!isLoggedIn && (
+    <Link href="/signup" onClick={closeMenu}>
+      Sign Up
+    </Link>
+  )}
+
+  {isLoggedIn && (
+    <button
+      type="button"
+      className="btn btn-sm btn-ghost mobile-logout"
+      onClick={() => {
+        closeMenu();
+        signOut({ callbackUrl: "/" });
+      }}
+    >
+      Logout
+    </button>
+  )}
+</nav>
+
+{/* {isLoggedIn && (
   <div className="auth-nav">
     <span className="user-chip">Hi, {studentName}</span>
 
@@ -63,7 +95,7 @@ export default function Header() {
       Logout
     </button>
   </div>
-)}
+)} */}
       </div>
     </header>
   );
