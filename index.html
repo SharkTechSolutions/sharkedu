@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Complete MERN Stack Development Course — MongoDB, Express, React, Node.js. Enroll now at SharkEdu." />
+  <title>Complete MERN Stack Development Course | SharkEdu</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero__banner">
+      <img
+        class="hero__img"
+        src="mern_stack_course.jpeg"
+        alt="SharkEdu — AI-Powered MERN Stack Developer Program"
+        width="1200"
+        height="auto"
+      />
+    </div>
+  </header>
+
+  <main class="course">
+    <div class="container">
+      <header class="course__intro">
+        <span class="course__eyebrow">SharkEdu Bootcamp</span>
+        <h1 class="course__title">Complete MERN Stack Development Course</h1>
+        <p class="course__desc">
+          Master full-stack development with MongoDB, Express, React, and Node.js.
+          Build real-world projects, secure APIs, and deploy production-ready applications.
+        </p>
+      </header>
+
+      <section aria-label="Technologies">
+        <div class="tech-grid">
+          <span class="tech-pill"><span class="tech-pill__dot tech-pill__dot--mongo"></span> MongoDB</span>
+          <span class="tech-pill"><span class="tech-pill__dot tech-pill__dot--express"></span> Express.js</span>
+          <span class="tech-pill"><span class="tech-pill__dot tech-pill__dot--react"></span> React.js</span>
+          <span class="tech-pill"><span class="tech-pill__dot tech-pill__dot--node"></span> Node.js</span>
+        </div>
+      </section>
+
+      <section aria-label="What you will learn">
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">📈</div>
+            <h3>Beginner to Advanced</h3>
+            <p>Structured path from fundamentals to professional full-stack skills.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">🛠️</div>
+            <h3>Real-world Projects</h3>
+            <p>Portfolio-ready apps that mirror industry workflows.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">🔌</div>
+            <h3>API Development</h3>
+            <p>RESTful APIs, middleware, and scalable backend design.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">🔐</div>
+            <h3>Authentication</h3>
+            <p>JWT, sessions, and secure user auth patterns.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">🚀</div>
+            <h3>Deployment</h3>
+            <p>Ship apps to cloud and production environments.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">📜</div>
+            <h3>Certificate</h3>
+            <p>Recognized completion certificate for your career.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__line" aria-hidden="true"></div>
+      <p class="footer__text">A initiative by <strong>SharkTech Solutions</strong></p>
+    </div>
+  </footer>
+
+  <aside class="launch-bar" role="complementary" aria-label="Course launch announcement">
+    <div class="launch-bar__inner">
+      <div class="launch-bar__left">
+        <span class="launch-badge">
+          <span class="launch-badge__pulse" aria-hidden="true"></span>
+          Launching Soon
+        </span>
+        <p class="launch-bar__text">
+          <strong>MERN Stack Course</strong> — Limited seats. Enroll early &amp; start building.
+        </p>
+      </div>
+      <button type="button" class="btn-enroll js-open-enroll" aria-haspopup="dialog">
+        Enroll Now
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </button>
+    </div>
+  </aside>
+
+  <div class="modal-overlay" id="enrollModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal">
+      <button type="button" class="modal__close" id="closeModalBtn" aria-label="Close form">&times;</button>
+      <h2 class="modal__title" id="modalTitle">Enroll in MERN Stack Course</h2>
+      <p class="modal__subtitle">Share your details and our team will contact you shortly.</p>
+      <div id="modalFormRoot"></div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/form.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
