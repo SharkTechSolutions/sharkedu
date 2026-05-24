@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Header({ onOpenEnquiry }) {
   const { data: session } = useSession();
@@ -35,17 +36,12 @@ export default function Header({ onOpenEnquiry }) {
         </Link>
 
         {/* Right Side */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "12px",
-            marginLeft: "auto",
-          }}
-        >
+        <div className="header-actions" style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           {isLoggedIn && (
             <span className="user-chip">Hi, {studentName}</span>
           )}
+
+          <ThemeToggle />
 
           <button
             type="button"
