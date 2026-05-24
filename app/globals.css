@@ -310,7 +310,7 @@ main{min-height:calc(100svh - var(--nav-h) - 280px)}
 .course-card h3{font-size:var(--t-lg);font-weight:700;color:var(--text);line-height:1.35;margin:0}
 .course-summary{
   color:var(--text-muted);font-size:var(--t-sm);line-height:1.65;margin:0;flex:1;
-  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+  display:-webkit-box;line-clamp:3;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
 }
 .course-meta{display:flex;flex-wrap:wrap;gap:var(--sp-2)}
 .course-meta span{
