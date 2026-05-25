@@ -57,7 +57,7 @@ a: "Yes. Students receive mentor guidance, doubt-solving sessions, project revie
 export const courses = [
 {
 slug: "mern-stack-ai-mastery",
-title: "MERN Stack & AI Tools Mastery",
+title: "AI-Powered MERN Stack Developer Program",
 category: "Web Development",
 level: "Beginner to Advanced",
 duration: "16 Weeks",
@@ -86,7 +86,8 @@ curriculum: [
 "AI tools for developers",
 "Cloud deployment and hosting",
 "Capstone production projects"
-]
+],
+pdf: "/pdfs/mern-course-details.pdf",
 },
 
 {
